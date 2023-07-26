@@ -17,37 +17,37 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-// app.post('/send', (req, res) => {
-//   const { name, email, message } = req.body;
+app.post('/send', (req, res) => {
+  const { name, email, message } = req.body;
 
-//   // Create a transporter using SMTP settings
-//   const transporter = nodemailer.createTransport({
-//     service: 'Gmail',
-//     auth: {
-//       user: 'Your email address',
-//       pass: 'Your email password',
-//     },
-//   });
+  // Create a transporter using SMTP settings
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'Your email address',
+      pass: 'Your email password',
+    },
+  });
 
-//   // Prepare the email message
-//   const mailOptions = {
-//     from: email,
-//     to: 'Recipient email address',
-//     subject: 'New form submission',
-//     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-//   };
+  // Prepare the email message
+  const mailOptions = {
+    from: email,
+    to: 'Recipient email address',
+    subject: 'New form submission',
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  };
 
-//   // Send the email
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       console.log('Error sending email:', error);
-//       res.status(500).send('Error sending email');
-//     } else {
-//       console.log('Email sent:', info.response);
-//       res.send('Email sent');
-//     }
-//   });
-// });
+  // Send the email
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log('Error sending email:', error);
+      res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent:', info.response);
+      res.send('Email sent');
+    }
+  });
+});
 
 // const hostname = '192.168.54.189';
 // Start the server
