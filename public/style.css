@@ -203,7 +203,6 @@
 
 #skills li{
   padding: 4px;
-  
 }
 
 
@@ -444,4 +443,8 @@
   min-width: 400px;
   min-height: 200px;
   font-size: 20px;
+}
+
+.skills > li{
+  /* margin: 25px; */
 }
